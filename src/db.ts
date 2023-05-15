@@ -27,11 +27,11 @@ export const MongoDbConnection = function () {
                 return db;
             } else {
                 console.log(`getting new db connection`);
-                db = await DbConnect();
+                db = await DbConnect() as MongoClient;
                 return db; 
             }
         } catch (e) {
-            return e;
+            return e as any
         }
     }
 
@@ -73,11 +73,11 @@ export const PostgresConnection = function () {
                 return db;
             } else {
                 console.log(`getting new db connection`);
-                db = await DbConnect();
+                db = await DbConnect() as Pool;
                 return db; 
             }
         } catch (e) {
-            return e;
+            return e as any;
         }
     }
 
